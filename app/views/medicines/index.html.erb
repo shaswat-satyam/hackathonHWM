@@ -1,4 +1,16 @@
-<p style="color: green"><%= notice %></p>
+
+<%if notice%>
+
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <%= notice%>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+
+
+
+  <%end%>
 
 <h1>Medicines</h1>
 
@@ -9,11 +21,11 @@
       <%= link_to "Show this medicine", medicine %>
     </p>
 
+  <br style="color:red; height: 5px;">
+  <% end %>
+  <% if user_signed_in? %> 
+    <%= link_to "New medicine", new_medicine_path %>
+  <%else%>
+    <p>Only trusted users can add medicine</p>
+  <%end%>
 </div>
-<% if user_signed_in? %> 
-  <%= link_to "New medicine", new_medicine_path %>
-<%else%>
-  <p>Only trusted users can add medicine</p>
-<%end%>
-
-<% end %>
